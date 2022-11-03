@@ -1,9 +1,19 @@
 import './styles/global.css';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { Landing } from './pages/Landing';
+import { Login } from './pages/Login';
+import { NotFound } from './pages/NotFound';
+
 export function App() {
   return (
-    <div className="bg-[#121214] w-screen h-screen text-white flex items-center justify-center">
-      <h1 className="text-2xl font-black">Hello World!</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
