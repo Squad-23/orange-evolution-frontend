@@ -1,5 +1,8 @@
 {
+  "extends": "@moia-oss/eslint-prettier-typescript-config",
   "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": "./src",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],

@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "eslint ./src/",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "preview": "vite preview",
     "commit": "cz"
   },
@@ -14,12 +17,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@moia-oss/eslint-prettier-typescript-config": "^0.11.34",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
-    "typescript": "^4.6.4",
+    "eslint": "^8.26.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4",
     "vite": "^3.2.0"
   }
 }
