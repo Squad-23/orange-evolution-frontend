@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-light-gray-300: #b2b2b2;
+  --color-light-gray-200: #c6c6c6;
+  --color-light-gray-100: #d1d1d1;
+
+  --color-dark-gray-300: #0a0708;
+  --color-dark-gray-200: #0f0d0e;
+  --color-dark-gray-100: #1b191a;
+}
+
+.light {
+  --color-dominant-300: var(--color-light-gray-300);
+  --color-dominant-200: var(--color-light-gray-200);
+  --color-dominant-100: var(--color-light-gray-100);
+
+  --color-contrast-300: var(--color-dark-gray-300);
+  --color-contrast-200: var(--color-dark-gray-200);
+  --color-contrast-100: var(--color-dark-gray-100);
+}
+
+.dark {
+  --color-dominant-300: var(--color-dark-gray-300);
+  --color-dominant-200: var(--color-dark-gray-200);
+  --color-dominant-100: var(--color-dark-gray-100);
+
+  --color-contrast-300: var(--color-light-gray-300);
+  --color-contrast-200: var(--color-light-gray-200);
+  --color-contrast-100: var(--color-light-gray-100);
+}
