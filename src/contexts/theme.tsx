@@ -14,14 +14,25 @@ export const ThemeContext = createContext<ThemeContextProps>({
 });
 
 export function ThemeContextProvider({ children }: PropsWithChildren) {
+  const isUserThemePreferenceDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const localTheme = localStorage.theme as string | undefined;
+
   const [theme, setTheme] = useState<string>(
-    window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.theme === 'dark' ? dark : light,
+    (localTheme ? localTheme === 'dark' : isUserThemePreferenceDark) ? dark : light,
   );
 
   const value = useMemo(
     () => ({
       theme,
-      toggleTheme: () => setTheme((prev) => (prev === light ? dark : light)),
+      toggleTheme: () =>
+        setTheme((prev) => {
+          if (prev === light) {
+            localStorage.theme = 'dark';
+            return dark;
+          }
+          localStorage.theme = 'light';
+          return light;
+        }),
     }),
     [theme],
   );
