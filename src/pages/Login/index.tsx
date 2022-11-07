@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import { ThemeSwitcher } from '../../components/ThemeSwitch';
 
 export function Login() {
 
 
   return (
-    <div className="bg-zinc-900 w-screen h-screen flex flex-col gap-4 items-center justify-center">
-      <h1 className="text-[#ffa000] text-5xl font-extrabold">Orange Evolution </h1>
+
+    <div className="bg-dominant-200 w-screen h-screen flex flex-col gap-4 items-center justify-center">
         <div className="m-5 p-5 box-border">
           <div className="h-full">
             <div className="bg-gradient-to-br from-[#ff5a23] to-[#ffa000] backdrop-blur-3xl  w-max rounded-3xl overflow-hidden p-77-55-33-95 shadow-xl">
@@ -47,10 +48,12 @@ export function Login() {
             </div>
           </div>
       </div>
-
-      <Link to="/" className="bg-slate-900 px-8 py-2 rounded text-white">
+      <ThemeSwitcher />
+      <h1 className="text-contrast-200 text-3xl font-black">Página de Login</h1>
+      <Link to="/" className="bg-secondary-500 px-8 py-2 rounded text-gray-light-100">
         Trocar de página
       </Link>
     </div>
+
   );
 }
