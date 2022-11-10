@@ -1,31 +1,34 @@
+import Avatar from '../assets/avatar.svg'
 import DiscordLogo from '../assets/discord-logo.svg'
+import Arrow from '../assets/icon-arrow.svg'
 import OrangeLogo from '../assets/orange-evolution-logo.svg'
 
-import { Text } from './Text'
+
 import { ThemeSwitcher } from './ThemeSwitch'
 
 
 export function Menu() {
     return (
       <div className="bg-gray-100 w-full h-32">
-          <div className="bg-gray-100 mx-16 my-3 justify-between">
-            <div>
-              <img src={ OrangeLogo } alt="Logo Orange Evolution" className="w-100 h-100 flex-grow-0"/>
-                <div className="flex justify-end">
-                  <button type="button" className="rounded-2xl bg-[#00C19C] w-80 h-11 text-white font-bold text-lg">
-                    <div className="flex justify-center">
-                      <img src={ DiscordLogo } alt="Logo Discord" className="mr-3"/>
-                      <Text>Comunidade Orange</Text>
-                    </div>
+          <div className="bg-gray-100">
+            <div className="py-3 px-16">
+
+              <div className="bg-gray-100 flex justify-between">
+                <img src={ OrangeLogo } alt="" className="" />
+                <div className="bg-gray-100 flex w-[504px] items-center ">
+                  <button type="button" className="rounded-2xl bg-[#00C19C] w-80 h-11 flex justify-center items-center text-white font-bold text-xl mr-6">
+                  <img src={ DiscordLogo } alt="Logo Discord" className="mr-3"/>
+                    Comunidade Orange
                   </button>
                   <ThemeSwitcher/>
-                  <img src="" alt="" />
+                  <img src={ Avatar } alt="Imagem de avatar" className="ml-6" />
+                  <img src={ Arrow } alt="Seta para baixo" />
                 </div>
+              </div>
             </div>
-
           </div>
-
       </div>
 
-)}
+)
+}
   
