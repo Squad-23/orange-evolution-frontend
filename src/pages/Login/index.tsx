@@ -1,60 +1,45 @@
-
 import { Link } from 'react-router-dom';
 
+import TrilhaLaranja from '../../assets/trilha-da-laranja.svg';
+import { Menu } from '../../components/Menu';
 import { ThemeSwitcher } from '../../components/ThemeSwitch';
 
-export function Login() {
 
 
-  return (
 
-    <div className="bg-dominant-200 w-screen h-screen flex flex-col gap-4 items-center justify-center">
-        <div className="m-5 p-5 box-border">
-          <div className="h-full">
-            <div className="bg-gradient-to-br from-[#ff5a23] to-[#ffa000] backdrop-blur-3xl  w-max rounded-3xl overflow-hidden p-77-55-33-95 shadow-xl">
-              
-              <form className="w-full p-10">
-                <span className="text-3xl font-black text-white flex center justify-center mb-10">Bem-vindo </span>
-                
-                <div className="w-full relative border-orange-700 bottom-2 border-solid mb-3">
-                  <input 
-                    className="bg-white justify-center top-5 rounded-md ml-3"
-                    type="email"
-                    
-                    />
-                    <span className="absolute block w-full h-full top-0 left-0 text-lg pointer-events-none" data-placeholder="Email">Email </span>
-              </div>
 
-              <div className="w-full relative mb-3">
-                <input 
-                  className="text-[15px] ml-3"
-                  type="password"
-                  
-                  />
-                <span className="absolute block w-full h-full top-0 left-0 pointer-events-none" data-placeholder="Password"> Senha </span>
-              </div>
-              
-              <div className="flex justify-center align-center pb-13">
-                <button type="button" className="text-[15px] border-solid border-r-10 rounded-md shadow-2xl mt-5 uppercase bg-indigo-900 justify-center align-center  w-40 h-12">Login</button>
-              </div>
+// export function Login() {
+//   return (
+//     <div className="bg-dominant-200 w-screen h-screen flex flex-col gap-4 items-center justify-center">
+//       <ThemeSwitcher />
+//       <h1 className="text-contrast-200 text-3xl font-black">Login</h1>
+//       <Link to="/login" className="bg-primary-500 px-8 py-2 rounded text-gray-light-100">
+//         Trocar de página
+//       </Link>
+//     </div>
+//   );
+// }
 
-              <div className="flex justify-center align-center mt-12">
-                <span className="p-5">Não possui conta?</span>
-                
-                <a className="text[15] p-5" href="https://github.com/">Criar conta</a>
+export function Login(){
+  return(
+      <div className="bg-gray-100 w-screen h-screen flex flex-col gap-4">
+        <div className="">
+        <Menu/>
+        </div>
+        <div className="bg-gradient-to-r from-[#FD7AC54D] to-[#267CBC26] w-screen h-[500px]">
+          <div className="mx-16 my-16 flex ">
+            <div>
+              <h1 className="text-[#00C19C] text-5xl font-semibold ">Bem vinda, fulana</h1>
+                <div className="flex  mr-32 h-72 w-auto">
+                  <p className="font-medium text-2xl">Escolha uma ou mais trilhas para seguir...</p>
+                  <p className="font-medium text-xl"> Ao começar uma trilha você consegue acompanhar a sua evolução conforme consome os conteúdos!</p>
+                  <p className="font-medium text-xl">Por meio das trilhas você planta a <strong>semente do seu conhecimento</strong> e, assim como uma laranjeira, futuramente você colherá os frutos dos seus estudos. Vamos nessa?</p>
                 </div>
-
-
-              </form>
             </div>
+            <img src={ TrilhaLaranja } alt="" className="flex-shrink-0"/>
           </div>
+        </div>
       </div>
-      <ThemeSwitcher />
-      <h1 className="text-contrast-200 text-3xl font-black">Página de Login</h1>
-      <Link to="/" className="bg-secondary-500 px-8 py-2 rounded text-gray-light-100">
-        Trocar de página
-      </Link>
-    </div>
-
+    
   );
 }
