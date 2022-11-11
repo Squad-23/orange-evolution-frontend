@@ -5,12 +5,12 @@ import YouTubeLogo from '../assets/youtube-icon.svg'
 
 export function Footer(){
     return(
-        <div className="bg-gray-100 w-screen h-80">
-            <div className="bg-yellow-700">
-                <div className="bg-red-800 flex ">
+        <div className="bg-dominant-100 w-screen h-80">
+            <div className="">
+                <div className="flex ">
                     <img src={ FCamaraLogo} alt="Logo FCamara" />
-                        <div className="bg-blue-600 flex flex-row">
-                            <img src={ YouTubeLogo} alt="" />
+                        <div className="flex flex-row">
+                            <img src={ YouTubeLogo } alt="" />
                             <img src={ InstagramLogo } alt="" />
                             <img src={ LinkedInLogo } alt="" />  
                         </div>

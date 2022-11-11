@@ -1,11 +1,37 @@
+import BannerUX from '../../assets/image-card-ux-ui.svg'; 
 import TrilhaLaranja from '../../assets/trilha-da-laranja.svg';
-import { Menu } from '../../components/Menu';
+import type { CardProps } from '../../components/Card';
 import { Card } from '../../components/Card';
 import { Footer } from '../../components/Footer';
+import { Menu } from '../../components/Menu';
 
 export function Dashboard(){
+  const cards: CardProps[] = [
+    {
+      title: "UX/UI Design",
+      banner: BannerUX,
+      description: "ASDASDASDASDASD",
+      duration: 4000,
+      progress: 10,
+    },
+    {
+      title: "UX/UI Design",
+      banner: BannerUX,
+      description: "ASDASDASDASDASD",
+      duration: 4000,
+      progress: 10,
+    },
+    {
+      title: "UX/UI Design",
+      banner: BannerUX,
+      description: "ASDASDASDASDASD",
+      duration: 4000,
+      progress: 10,
+    },
+  ]
+
   return(
-      <div className="bg-gray-100 w-screen h-screen flex flex-col gap-4">
+      <div className="bg-gray-100 w-screen h-screen flex flex-col">
         <div className="">
         <Menu/>
         </div>
@@ -26,13 +52,14 @@ export function Dashboard(){
           </div>
         </div>
 
-        <div className="bg-white w-screen px-10 py-11 flex ">
+        <div className="bg-dominant-200 w-screen px-10 py-11 flex ">
           <div className="flex space-x-4">
-            <Card/>
-            <Card/>
-            <Card/>
+            {
+              cards.map((card, index) => (
+                <Card key={`Card_${String(index)}`} {...card} />
+              ))
+            }
           </div>
-
         </div>
         
         <Footer/>
