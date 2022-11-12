@@ -8,7 +8,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
 import { NotFound } from './pages/NotFound';
-
+import { Trail } from './pages/Trail'
 
 export function App() {
   const { theme } = useContext(ThemeContext);
@@ -20,7 +20,9 @@ export function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/trilha" element={<Trail />} />
           <Route path="*" element={<NotFound />} />
+
 
         </Routes>
       </BrowserRouter>
