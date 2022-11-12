@@ -1,4 +1,6 @@
-import BannerUX from '../../assets/image-card-ux-ui.svg'; 
+import BannerUX from '../../assets/image-card-ux-ui.svg';
+import BannerQA from '../../assets/image-card-qa.svg';
+import BannerDev from '../../assets/image-card-dev.svg'; 
 import TrilhaLaranja from '../../assets/trilha-da-laranja.svg';
 import type { CardProps } from '../../components/Card';
 import { Card } from '../../components/Card';
@@ -10,23 +12,23 @@ export function Dashboard(){
     {
       title: "UX/UI Design",
       banner: BannerUX,
-      description: "ASDASDASDASDASD",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas tincidunt. Praesent pharetra iaculis neque, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.",
       duration: 4000,
       progress: 10,
     },
     {
-      title: "UX/UI Design",
+      title: "Desenvolvimento Full Stack",
       banner: BannerUX,
-      description: "ASDASDASDASDASD",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas tincidunt. Praesent pharetra iaculis neque, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.",
       duration: 4000,
-      progress: 10,
+      progress: 0,
     },
     {
-      title: "UX/UI Design",
-      banner: BannerUX,
-      description: "ASDASDASDASDASD",
+      title: "QA (Quality Assurance)",
+      banner: BannerQA,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas tincidunt. Praesent pharetra iaculis neque, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.",
       duration: 4000,
-      progress: 10,
+      progress: 0,
     },
   ]
 
@@ -62,7 +64,7 @@ export function Dashboard(){
           </div>
         </div>
         
-        <Footer/>
+        <Footer logofc=''/>
 
 
       </div>
