@@ -3,7 +3,7 @@ import { useMemo, useState, createContext } from 'react';
 
 const [dark, light] = ['dark', 'light'];
 
-type ThemeContextProps = {
+interface ThemeContextProps {
   theme: string;
   toggleTheme: () => void;
 };
