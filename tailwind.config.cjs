@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
@@ -8,14 +9,21 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: {
-          700: '#ff3200',
-          500: '#ff5a23',
-          400: '#ff7823',
-          200: '#ffa000',
-        },
-        secondary: {
-          500: 'rgb(0, 193, 156)',
+        brand: {
+          orange: {
+            700: '#ff3200',
+            500: '#ff5a23',
+            400: '#ff7823',
+            200: '#ffa000',
+          },
+          pink: {
+            100: "#FD7AC5",
+            700: "#FA2882",
+          },
+          purple: "#5D35D9",
+          green: "#00C19C",
+          blue: "#5D35D9",
+          cyan: "#267CBC",
         },
         gray: {
           light: {
