@@ -34,7 +34,7 @@ export function Dashboard() {
   ];
 
   return (
-    <div className="bg-dominant-200 w-screen h-full flex flex-col">
+    <div className="bg-dominant-200 w-full h-full flex flex-col">
       <Menu />
 
       <section className="relative w-screen z-0 mt-20">
@@ -46,8 +46,18 @@ export function Dashboard() {
           "
         />
 
-        <div className="px-16 py-32 flex justify-between items-center gap-[10%]">
-          <div className="flex flex-col gap-10 w-[38rem] text-contrast-100">
+        <div
+          className="
+            w-screen flex flex-col gap-10
+            p-12
+            sm:px-16 sm:py-32 sm:items-center sm:flex-row
+          "
+        >
+          <div
+            className="
+              flex flex-col gap-10 w-auto sm:max-w-[38rem] text-contrast-100
+            "
+          >
             <h2 className="text-brand-pink-700 dark:text-brand-green text-4xl font-semibold">
               Bem vinda, Maria Angélica
             </h2>
@@ -67,7 +77,7 @@ export function Dashboard() {
         </div>
       </section>
 
-      <section className="bg-dominant-200 w-screen p-10 flex gap-10">
+      <section className="bg-dominant-200 w-screen p-10 flex flex-col gap-10 sm:flex-row">
         {cards.map((card, index) => (
           <Card key={`Card_${String(index)}`} {...card} />
         ))}

@@ -28,9 +28,11 @@ export function Menu() {
           target="_blank"
           rel="noreferrer"
           className="
+            hidden
+
             py-2 px-6
             rounded-xl bg-brand-green
-            flex gap-4 items-center
+            sm:flex gap-4 items-center
             text-white font-bold text-xl
             hover:bg-teal-600
           "

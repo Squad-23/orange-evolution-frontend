@@ -5,21 +5,29 @@ import { YoutubeIcon } from '../assets/svgs/YoutubeIcon';
 
 export function Footer() {
   return (
-    <footer className="bg-dominant-100 w-screen h-72 flex flex-col px-28 py-20">
+    <footer
+      className="
+      bg-dominant-100 w-full flex flex-col
+      px-16 py-12
+      sm:px-28 sm:py-20
+    "
+    >
       <div
         className="
+          flex flex-col items-center gap-4
+
           flex-1 w-full bg-dominant-100
-          flex items-center justify-evenly space-x-40 align-center
+          sm:flex-row sm:justify-between align-center
         "
       >
         <a href="https://fcamara.com.br/" target="_blank" rel="noreferrer" className="bg-dominant-100">
           <img src={FCamaraLogo} alt="Logo FCamara" className="invert dark:invert-0" />
         </a>
-        <p className="text-xs text-contrast-300 font-semibold bg-dominant-100">
+        <p className="text-xs text-contrast-300 font-semibold bg-dominant-100 text-center">
           © 2022 FCamara Formação e Consultoria. Todos os direitos reservados.
         </p>
 
-        <div className="flex flex-row w-40 h-11 bg-dominant-100">
+        <div className="flex flex-row w-full bg-dominant-100 justify-center sm:justify-end sm:w-auto">
           <a href="https://www.youtube.com/c/GrupoFCamara">
             <YoutubeIcon />
           </a>
