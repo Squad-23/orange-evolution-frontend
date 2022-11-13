@@ -7,8 +7,8 @@ import { ThemeSwitcher } from '../../components/ThemeSwitch';
 
 export function Login() {
   return (
-    <div className="bg-dominant-100 w-screen h-screen">
-      <div className="bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] w-screen h-screen">
+    <div className="bg-dominant-100 sm:w-screen sm:h-screen">
+      <div className="sm:bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] sm:w-screen sm:h-screen">
       <span className="flex flex-row-reverse pr-40 pt-10 pb-8">
       <ThemeSwitcher/>
       </span>
@@ -23,7 +23,7 @@ export function Login() {
           </span>
 
             <div className="pb-4"> 
-              <span className="text-contrast-200 sm:text-base md: text-base lg:text-base font-semibold">Email</span>
+              <span className="text-contrast-200 sm:text-base lg:text-base font-semibold">Email</span>
               <input type='email' className="mt-2 bg-dominant-200 rounded-[0.25rem] w-[22.375rem] border-gray-400 border-[2px] py-2 px-2 focus:outline-none" placeholder="user@email.com"/>
             </div>
 
