@@ -9,7 +9,7 @@ import { ThemeSwitcher } from './ThemeSwitch'
 
 export function Menu() {
     return (
-      <div className="w-full h-32">
+      <div className="w-full">
           <div className="bg-dominant-100">
             <div className="py-3 px-16">
 
