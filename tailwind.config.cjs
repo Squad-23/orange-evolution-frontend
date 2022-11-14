@@ -90,5 +90,6 @@ module.exports = {
       darkSelector: '.dark',
       colorVariables: true,
     }),
+    require('tailwindcss-radix')(),
   ],
 };
