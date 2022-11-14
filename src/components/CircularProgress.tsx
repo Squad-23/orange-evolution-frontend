@@ -1,22 +1,29 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
+interface CircularProgressProps {
+  max: number;
+  completed: number;
+}
 
-
-export function CircularProgress(){
-    return(
-        <div className="w-16 h-16 flex items-center justify-center">
-            <CircularProgressbar
-            value={0.66} maxValue={1} 
-            text={`${0.66 * 100}%`}
-            styles= {buildStyles({
-                rotation: 0.25,
-                textSize: '16px',
-                strokeLinecap: 'butt',
-                pathColor: `rgba(62, 152, 199)`,
-                textColor: '#F3F4F6',
-                trailColor: '#00C19C',
-                backgroundColor: '#00C19C',
-        })}/>
-        </div>
-    )
+export function CircularProgress({ max, completed }: CircularProgressProps) {
+  return (
+    <div className="h-16 w-16">
+      <CircularProgressbarWithChildren
+        className="fill-red-600"
+        value={(completed / max) * 100}
+        strokeWidth={8}
+        styles={buildStyles({
+          trailColor: '#00C19C30',
+          pathColor: `#00C19C`,
+          textColor: '#f88',
+          backgroundColor: '#3e98c7',
+          strokeLinecap: 'round',
+        })}
+      >
+        <span className="text-sm">
+          {completed}/{max}
+        </span>
+      </CircularProgressbarWithChildren>
+    </div>
+  );
 }
