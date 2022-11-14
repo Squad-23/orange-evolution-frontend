@@ -5,6 +5,7 @@
   ],
   "rules": {
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-    "react/require-default-props": [0]
+    "react/require-default-props": [0],
+    "jsx-a11y/label-has-associated-control": [0]
   }
 }
