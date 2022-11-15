@@ -94,5 +94,6 @@ module.exports = {
       colorVariables: true,
     }),
     require('tailwindcss-radix')(),
+    require('tailwind-scrollbar')(),
   ],
 };

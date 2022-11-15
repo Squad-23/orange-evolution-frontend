@@ -24,6 +24,7 @@ export function Trail() {
 
   return (
     <Page.Root>
+      <div className="bg-dominant-100">
       <Page.Menu> 
         <div className="flex items-center justify-center">
         <CircularProgress max={trail?.progress?.max} completed={trail?.progress?.completed}/>
@@ -31,7 +32,7 @@ export function Trail() {
         </div>
       </Page.Menu>
       <Page.Content>
-        <div className="w-screen h-screen flex flex-col  bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
+        <div className="w-screen min-h-screen flex-col bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
           <section className="flex flex-col items-center sm:flex-row sm:gap-16">
             <div>
               <h3 className="text-base font-bold uppercase bg-contrast my-4 text-contrast-300 sm:text-xl ">
@@ -50,16 +51,16 @@ export function Trail() {
 
           <Accordion.Root
             type="multiple"
-            className="
+            className="overflow-scroll scrollbar-thin
             bg-gray-200 dark:bg-gray-600 w-full rounded-2xl border-[1px] border-gray-900
-              overflow-clip mt-10
+              mt-10
             "
           >
             <div
               className="
                 w-full py-4 px-8 flex items-center text-contrast-100 gap-4
                 text-light text-sm border-gray-900
-                sm:px-16
+                sm:px-16 
               "
             >
               <HiSearch className="w-5 h-5" />
@@ -97,6 +98,7 @@ export function Trail() {
           </Accordion.Root>
         </div>
       </Page.Content>
+      </div>
     </Page.Root>
   );
 }
