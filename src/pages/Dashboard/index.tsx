@@ -2,8 +2,7 @@ import BannerQA from '../../assets/images/banner-qa.png';
 import { OrangeTrail } from '../../assets/svgs/OrangeTrail';
 import type { CardProps } from '../../components/Card';
 import { Card } from '../../components/Card';
-import { Footer } from '../../components/Footer';
-import { Menu } from '../../components/Menu';
+import { Page } from '../../components/Page';
 
 export function Dashboard() {
   const cards: CardProps[] = [
@@ -34,29 +33,29 @@ export function Dashboard() {
   ];
 
   return (
-    <div className="bg-dominant-200 w-full h-full flex flex-col">
-      <Menu />
+    <Page.Root>
+      <Page.Menu />
 
-      <section className="relative w-screen z-0 mt-20">
+      <Page.Content>
         <div
           className="
-            absolute w-full h-full opacity-30 z-[-1]
-            bg-gradient-to-r from-[#FD7AC5] to-[#267CBC]
-            dark:bg-gradient-to-l
-          "
+              absolute w-full h-full opacity-30 z-[-1]
+              bg-gradient-to-r from-[#FD7AC5] to-[#267CBC]
+              dark:bg-gradient-to-l
+            "
         />
 
         <div
           className="
-            w-screen flex flex-col gap-10
-            p-12
-            sm:px-16 sm:py-32 sm:items-center sm:flex-row
-          "
+              w-screen flex flex-col gap-10
+              p-12
+              sm:px-16 sm:py-32 sm:items-center sm:flex-row
+            "
         >
           <div
             className="
-              flex flex-col gap-10 w-auto sm:max-w-[38rem] text-contrast-100
-            "
+                flex flex-col gap-10 w-auto sm:max-w-[38rem] text-contrast-100
+              "
           >
             <h2 className="text-brand-pink-700 dark:text-brand-green text-4xl font-semibold">
               Bem vinda, Maria Angélica
@@ -75,7 +74,7 @@ export function Dashboard() {
 
           <OrangeTrail />
         </div>
-      </section>
+      </Page.Content>
 
       <section className="bg-dominant-200 w-screen p-10 flex flex-col gap-10 sm:flex-row">
         {cards.map((card, index) => (
@@ -83,7 +82,7 @@ export function Dashboard() {
         ))}
       </section>
 
-      <Footer />
-    </div>
+      <Page.Footer />
+    </Page.Root>
   );
 }
