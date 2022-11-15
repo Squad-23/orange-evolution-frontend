@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react';
 import { useEffect, useMemo, createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Api } from '../providers/Api';
+import { Api, baseURL } from '../providers/Api';
 import type { UserData, UserLoginRes } from '../types/user';
 import { InitialUserData } from '../types/user';
 
@@ -22,11 +22,23 @@ export function UserContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState<UserData>(InitialUserData);
   const [token, setToken] = useState('');
   const navigate = useNavigate();
-  const privateApi = axios.create({ headers: { Authorization: `Bearer ${token}` } });
+  const privateApi = axios.create({ baseURL, headers: { Authorization: `Bearer ${token}` } });
 
   useEffect(() => {
-    localStorage.user = JSON.stringify(user);
-    localStorage.token = token;
+    if (localStorage.user && localStorage.token) {
+      const localUser = JSON.parse(localStorage.user as string) as UserData;
+      const localToken = localStorage.token as string;
+
+      setUser(localUser);
+      setToken(localToken);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (user.id && token) {
+      localStorage.user = JSON.stringify(user);
+      localStorage.token = token;
+    }
   }, [user, token]);
 
   const login = async (email: string, password: string) => {

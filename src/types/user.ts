@@ -1,4 +1,5 @@
 export interface UserData {
+  id: string;
   name: string;
   email: string;
   thisADM: boolean;
@@ -12,6 +13,7 @@ export interface UserLoginRes {
 }
 
 export const InitialUserData: UserData = {
+  id: '',
   name: '',
   email: '',
   thisADM: false,

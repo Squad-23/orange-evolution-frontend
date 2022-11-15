@@ -1,36 +1,12 @@
-import BannerQA from '../../assets/images/banner-qa.png';
+import { useContext } from 'react';
+
 import { OrangeTrail } from '../../assets/svgs/OrangeTrail';
-import type { CardProps } from '../../components/Card';
 import { Card } from '../../components/Card';
 import { Page } from '../../components/Page';
+import { TrailContext } from '../../contexts/trails';
 
 export function Dashboard() {
-  const cards: CardProps[] = [
-    {
-      title: 'UX/UI Design',
-      banner: BannerQA,
-      description:
-        'Lorem, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.',
-      duration: 4000,
-      progress: 51,
-    },
-    {
-      title: 'Desenvolvimento Full Stack',
-      banner: BannerQA,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas tincidunt. Praesent pharetra iaculis neque, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.',
-      duration: 2000,
-      progress: 0,
-    },
-    {
-      title: 'QA (Quality Assurance)',
-      banner: BannerQA,
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas tincidunt. Praesent pharetra iaculis neque, et commodo leo faucibus at. Proin at interdum tortor, ac viverra tellus. Phasellus convallis laoreet magna eget scelerisque. Nunc iaculis turpis non dui venenatis finibus. Sed scelerisque pulvinar odio, id finibus lectus ultrices in.',
-      duration: 1000,
-      progress: 0,
-    },
-  ];
+  const { trails } = useContext(TrailContext);
 
   return (
     <Page.Root>
@@ -77,8 +53,8 @@ export function Dashboard() {
       </Page.Content>
 
       <section className="bg-dominant-200 w-screen p-10 flex flex-col gap-10 sm:flex-row">
-        {cards.map((card, index) => (
-          <Card key={`Card_${String(index)}`} {...card} />
+        {trails.map((trail, index) => (
+          <Card key={`Card_${String(index)}`} trail={trail} />
         ))}
       </section>
 
