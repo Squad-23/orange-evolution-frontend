@@ -15,12 +15,11 @@ export function CircularProgress({ max, completed }: CircularProgressProps) {
         styles={buildStyles({
           trailColor: '#00C19C30',
           pathColor: `#00C19C`,
-          textColor: '#f88',
           backgroundColor: '#3e98c7',
           strokeLinecap: 'round',
         })}
       >
-        <span className="text-sm">
+        <span className="text-sm text-contrast-100">
           {completed}/{max}
         </span>
       </CircularProgressbarWithChildren>
