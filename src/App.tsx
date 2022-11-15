@@ -5,6 +5,8 @@ import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ThemeContext } from './contexts/theme';
+import { TrailContextProvider } from './contexts/trails';
+import { UserContextProvider } from './contexts/user';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
@@ -18,15 +20,19 @@ export function App() {
   return (
     <div className={classNames(theme, 'h-full')}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/trail" element={<Trail />} />
-          <Route path="/subject" element={<Subject />} />
+        <UserContextProvider>
+          <TrailContextProvider>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/trail/:idTrail" element={<Trail />} />
+              <Route path="/subject" element={<Subject />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </TrailContextProvider>
+        </UserContextProvider>
       </BrowserRouter>
     </div>
   );

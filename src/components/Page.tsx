@@ -1,6 +1,7 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import type { BaseHTMLAttributes } from 'react';
+import { useContext } from 'react';
 import { HiChevronDown, HiLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,7 @@ import { DiscordIcon } from '../assets/svgs/DiscordIcon';
 import { InstagramIcon } from '../assets/svgs/InstagramIcon';
 import { LinkedinIcon } from '../assets/svgs/LinkedinIcon';
 import { YoutubeIcon } from '../assets/svgs/YoutubeIcon';
+import { UserContext } from '../contexts/user';
 
 import { ThemeSwitcher } from './ThemeSwitch';
 
@@ -19,6 +21,7 @@ function Root({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
 }
 
 function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
+  const { logout } = useContext(UserContext);
   return (
     <>
       <div
@@ -73,7 +76,10 @@ function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
 
             <DropdownMenu.Portal className="mt-2">
               <DropdownMenu.Content className="bg-white rounded-md shadow p-1 mr-5 z-10">
-                <DropdownMenu.Item className="flex gap-2 items-center py-1 px-3">
+                <DropdownMenu.Item
+                  className="flex gap-2 items-center py-1 px-3 cursor-pointer hover:bg-gray-300"
+                  onClick={logout}
+                >
                   <HiLogout />
                   Sair da conta
                 </DropdownMenu.Item>
