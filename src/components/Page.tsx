@@ -22,15 +22,15 @@ function Menu({ children }: PropsWithChildren) {
     <>
       <div
         className="
-        w-full h-20 py-2 px-8 z-10 fixed top-0
+        w-full h-20 py-2 px-4 z-10 fixed top-0
         bg-dominant-200 bg-opacity-80 backdrop-blur-md
         border-b-1 border-b-dominant-200
         flex justify-between
       "
       >
-        <div className="flex gap-4">
+        <div className="flex gap-2">
           <Link to="/">
-            <img src={OrangeEvolutionLogo} alt="Logo da Orange Evolution" className="w-16 h-16" />
+            <img src={OrangeEvolutionLogo} alt="Logo da Orange Evolution" className="w-16 h-16 md:ml-16 md:mr-6" />
           </Link>
 
           {children}

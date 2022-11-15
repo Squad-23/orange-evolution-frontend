@@ -8,11 +8,16 @@ import { Page } from '../../components/Page';
 export function Trail() {
   return (
     <Page.Root>
-      <Page.Menu />
+      <Page.Menu> 
+        <div className="flex items-center justify-center">
+        <CircularProgress max={100} completed={3}/>
+        <p className='ml-5 font-normal text-xs text-contrast-300 sm:text-base'> 3 de 100 conteúdos concluídos</p>
+        </div>
+      </Page.Menu>
       <Page.Content>
-        <div className="w-screen h-screen bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
-          <section className="mt-24 flex flex-col items-center sm:flex-row sm:gap-16">
-            <div className="">
+        <div className="w-screen h-screen flex flex-col  bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
+          <section className="flex flex-col items-center sm:flex-row sm:gap-16">
+            <div>
               <h3 className="text-base font-medium bg-contrast my-4 text-contrast-300 sm:text-xl ">
                 VOCÊ ESTÁ NA TRILHA DE UX/UI DESIGN
               </h3>
@@ -30,7 +35,7 @@ export function Trail() {
             type="multiple"
             className="
             bg-gray-200 dark:bg-gray-600 w-full rounded-2xl border-[1px] border-gray-900
-              overflow-clip
+              overflow-clip mt-10
             "
           >
             <div
@@ -66,6 +71,43 @@ export function Trail() {
 
                   <CircularProgress max={10} completed={2} />
                 </div>
+
+                <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
+                  <div>
+                    <sup className="text-xs font-medium">ASSUNTO</sup>
+                    <h4 className="text-base font-medium">Culture Code</h4>
+                  </div>
+
+                  <CircularProgress max={1} completed={0} />
+                </div>
+
+                <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
+                  <div>
+                    <sup className="text-xs font-medium">ASSUNTO</sup>
+                    <h4 className="text-base font-medium">Product Owner e Scrum Master</h4>
+                  </div>
+
+                  <CircularProgress max={4} completed={0} />
+                </div>
+
+                <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
+                  <div>
+                    <sup className="text-xs font-medium">ASSUNTO</sup>
+                    <h4 className="text-base font-medium">Desenvolvimento</h4>
+                  </div>
+
+                  <CircularProgress max={4} completed={0} />
+                </div>
+
+                <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
+                  <div>
+                    <sup className="text-xs font-medium">ASSUNTO</sup>
+                    <h4 className="text-base font-medium">UX Design</h4>
+                  </div>
+
+                  <CircularProgress max={4} completed={0} />
+                </div>
+
               </Accordion.Content>
             </Accordion.Item>
           </Accordion.Root>
