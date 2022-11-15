@@ -1,5 +1,6 @@
 import './styles/global.css';
 
+import classNames from 'classnames';
 import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -8,15 +9,14 @@ import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
 import { Login } from './pages/Login';
 import { NotFound } from './pages/NotFound';
-import { Subject } from './pages/Subject'; 
+import { Subject } from './pages/Subject';
 import { Trail } from './pages/Trail';
-
 
 export function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={theme}>
+    <div className={classNames(theme, 'h-full')}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -26,7 +26,6 @@ export function App() {
           <Route path="/subject" element={<Subject />} />
 
           <Route path="*" element={<NotFound />} />
-
         </Routes>
       </BrowserRouter>
     </div>

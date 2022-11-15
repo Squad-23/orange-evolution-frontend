@@ -1,5 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import type { PropsWithChildren } from 'react';
+import classNames from 'classnames';
+import type { BaseHTMLAttributes } from 'react';
 import { HiChevronDown, HiLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
@@ -13,11 +14,11 @@ import { YoutubeIcon } from '../assets/svgs/YoutubeIcon';
 
 import { ThemeSwitcher } from './ThemeSwitch';
 
-function Root({ children }: PropsWithChildren) {
+function Root({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
   return <div className="bg-dominant-200 w-full h-full flex flex-col">{children}</div>;
 }
 
-function Menu({ children }: PropsWithChildren) {
+function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
   return (
     <>
       <div
@@ -88,12 +89,12 @@ function Menu({ children }: PropsWithChildren) {
   );
 }
 
-function Content({ children }: PropsWithChildren) {
+function Content({ children, className }: BaseHTMLAttributes<HTMLBaseElement>) {
   return (
-    <section className="relative w-screen z-0">
+    <section className={classNames('relative w-screen z-0', className)}>
       <div
         className="
-        absolute w-full h-full opacity-30 z-[-1]
+        absolute w-full h-full opacity-30 z-[-1] top-0 left-0
         bg-gradient-to-r from-brand-pink-100 to-[#D5FFAB]
         dark:bg-gradient-to-l dark:to-brand-cyan
       "

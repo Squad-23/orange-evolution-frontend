@@ -10,6 +10,9 @@ module.exports = {
       sans: ['Inter', 'sans-serif'],
     },
     extend: {
+      fontSize: {
+        'sm-screen': 'max(1.11vmax, 10px)',
+      },
       colors: {
         brand: {
           orange: {
