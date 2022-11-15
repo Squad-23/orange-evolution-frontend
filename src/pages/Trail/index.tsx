@@ -1,11 +1,27 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import React, { useEffect, useState } from 'react';
 import { HiSearch } from 'react-icons/hi';
+import * as ScrollArea from '@radix-ui/react-scroll-area'
 
 import EvolucaoLaranja from '../../assets/images/evolucao-laranja.png';
 import { CircularProgress } from '../../components/CircularProgress';
 import { Page } from '../../components/Page';
+import { TrailsServices } from '../../services/TrailsServices';
+
 
 export function Trail() {
+  const [trailsUser, setTrailsUser] = useState();
+  const [nameUser, setNameUser] = useState();
+  
+
+  useEffect(() => {
+    TrailsServices.getUserTrails()
+      .then((response) => {
+        setTrailsUser(response.data.trails[0]);
+        setNameUser(response.data.name)
+     }) .catch((error) => {console.log(error)});
+  }, []);
+
   return (
     <Page.Root>
       <Page.Menu> 
@@ -18,9 +34,10 @@ export function Trail() {
         <div className="w-screen h-screen flex flex-col  bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
           <section className="flex flex-col items-center sm:flex-row sm:gap-16">
             <div>
-              <h3 className="text-base font-medium bg-contrast my-4 text-contrast-300 sm:text-xl ">
-                VOCÊ ESTÁ NA TRILHA DE UX/UI DESIGN
+              <h3 className="text-base font-bold uppercase bg-contrast my-4 text-contrast-300 sm:text-xl ">
+               Oi, {nameUser} 
               </h3>
+              <h2 className="text-base font-medium bg-contrast my-4 text-contrast-300 sm:text-xl">VOCÊ ESTÁ NA TRILHA DE {trailsUser?.title}</h2>
               <p className="text-sm italic font-normal my-4 text-contrast-300 sm:text-xl">
                 &quot;Você sabia que o tempo médio para uma laranjeira dar frutos é de 24 meses após o plantio?&quot;
               </p>
@@ -48,12 +65,47 @@ export function Trail() {
               <HiSearch className="w-5 h-5" />
               Busque por uma aula ou assunto
             </div>
-            <Accordion.Item value="item-1" className="w-full border-t-[1px] border-gray-900">
+          <div className="scroll-smooth">
+            {trailsUser?.modules.map(module =>
+                    <Accordion.Item   value={module.title} className="w-full border-t-[1px] border-gray-900">
+                    <Accordion.Header>
+                      <Accordion.Trigger className="flex justify-between items-center text-contrast-100 py-4 px-8" asChild>
+                        <div>
+                          <div>
+                            <sup className="text-xs font-medium">MODULO</sup>
+                            <h4 className="text-base font-medium">{module.title}</h4>
+                          </div>
+
+                          <CircularProgress max={module.progress.max} completed={module.progress.completed} />
+                        </div>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    {module.subjects.map(subject =>
+                          <Accordion.Content className="border-t-[1px] border-gray-900">
+                            <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
+                              <div>
+                                <sup id="assunto"  className="text-xs font-medium">ASSUNTO</sup>
+                                <h4 className="text-base font-medium">{subject.title}</h4>
+                              </div>
+
+                              <CircularProgress max={subject.progress.max} completed={subject.progress.completed} />
+                            </div>
+                          </Accordion.Content>
+                    )}
+                  </Accordion.Item>
+            )}
+</div>
+
+
+
+
+
+            {/* <Accordion.Item value="item-1" className="w-full border-t-[1px] border-gray-900">
               <Accordion.Header>
                 <Accordion.Trigger className="flex justify-between items-center text-contrast-100 py-4 px-8" asChild>
                   <div>
                     <div>
-                      <sup className="text-xs font-medium">MÓDULO</sup>
+                      <sup className="text-xs font-medium">Teste</sup>
                       <h4 className="text-base font-medium">O início</h4>
                     </div>
 
@@ -65,7 +117,7 @@ export function Trail() {
               <Accordion.Content className="border-t-[1px] border-gray-900">
                 <div className="flex justify-between items-center text-contrast-100 py-4 px-8 bg-purple-300 bg-opacity-30 border-t-[1px] border-gray-600">
                   <div>
-                    <sup className="text-xs font-medium">ASSUNTO</sup>
+                    <sup id="assunto"  className="text-xs font-medium">ASSUNTO</sup>
                     <h4 className="text-base font-medium">Migração de carreira</h4>
                   </div>
 
@@ -109,7 +161,7 @@ export function Trail() {
                 </div>
 
               </Accordion.Content>
-            </Accordion.Item>
+            </Accordion.Item> */}
           </Accordion.Root>
         </div>
       </Page.Content>

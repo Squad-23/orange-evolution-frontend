@@ -3,6 +3,9 @@ import { Page } from '../../components/Page';
 import { Content } from './Content';
 import { ContentAccordion } from './ContentAccordion';
 
+
+
+
 export function Subject() {
   return (
     <Page.Root>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 
-const baseURL = process.env.REACT_APP_BASE_URL;
+const baseURL ="https://orange-evolution-squad23.herokuapp.com/";
 
 export const Api = axios.create({ baseURL })
