@@ -23,7 +23,8 @@ export function TrailContextProvider({ children }: PropsWithChildren) {
       void (async () => {
         await privateApi
           .get(`/user/${user.id}/trails`)
-          .then(({ data }: AxiosResponse<{ trails: UserTrail[] }>) => setTrails(data.trails))
+          .then(({ data }: AxiosResponse<{ trails: UserTrail[] }>) =>{ console.log("chamando api", new Date().toUTCString()); setTrails(data.trails)}
+            )
           .catch((err) => {
             console.log(err);
           });
