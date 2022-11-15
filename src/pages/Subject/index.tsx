@@ -1,36 +1,53 @@
 import { Page } from '../../components/Page';
 
+import { Content } from './Content';
+import { ContentAccordion } from './ContentAccordion';
+
 export function Subject() {
   return (
     <Page.Root>
       <Page.Menu />
-      <Page.Content>
-        <div className="w-screen h-screen pt-7 px-6">
-          <section className="bg-dominant-200 mt-20 rounded-2xl flex flex-col px-4 py-6 items-center ">
-            <h2 className="bg-[#83CABC] text-contrast-300 w-full "> Migração de carreira</h2>
-            <h2 className="bg-[#00C19C] text-dominant-100 w-full"> Conteúdos</h2>
-
-            <div className="bg-dominant-100 w-auto h-auto rounded-2xl font-normal text-base sm:text-xl pl-2 py-3 mt-6 mb-6">
-              <label className="text-contrast-300 font-normal text-xl">
-                <input type="checkbox" className="rounded-2xl mr-3 w-5 h-5 accent-[#00C19C]" /> Guia definitivo de como
-                migrar para UX Design: 5 passos para virar um UX Design
-              </label>
+      <Page.Content className="w-full h-full py-7 px-6 sm:p-16">
+        <div className="flex sm:hidden flex-col gap-6">
+          <div className="bg-dominant-200 rounded-2xl flex flex-col items-center overflow-clip">
+            <div className="w-full flex flex-col sm:flex-row">
+              <h2 className="bg-[#83CABC] text-gray-dark-200 w-full px-7 py-3 text-xl font-semibold text-center">
+                Migração de carreira
+              </h2>
+              <h2 className="bg-[#00C19C] text-gray-light-200 w-full px-7 py-3 text-xl font-semibold text-center">
+                Conteúdos
+              </h2>
             </div>
 
-            <div className="bg-dominant-100 w-auto h-auto rounded-2xl mr-3 font-normal text-base sm:text-xl pl-2 py-3 mb-6 flex">
-              <label className="text-contrast-300 font-normal text-xl">
-                <input type="checkbox" className="rounded-2xl w-5 h-5 accent-[#00C19C]" /> Design Thinking e carreira:
-                como migrei de Psicologia para UX Design
-              </label>
+            <ContentAccordion />
+          </div>
+        </div>
+
+        <div className="w-full h-full hidden sm:flex flex-col gap-6">
+          <div className="bg-dominant-200 rounded-2xl flex overflow-clip h-full">
+            <div>
+              <h2 className="bg-[#83CABC] text-gray-dark-200 w-full px-7 py-3 text-xl font-semibold text-center">
+                Migração de carreira
+              </h2>
+              <Content.Root className="hidden sm:flex bg-dominant-300 p-6">
+                <Content.Title>Guia definitivo de como migrar para UX Design: 5 passos para virar um UX</Content.Title>
+                <Content.Resume>
+                  Se você quer saber de uma vez por todas qual é a fórmula mágica para conseguir fazer a migração de
+                  carreira para UX Design e começar a ganhar rios de dinheiro, este é o artigo para você…só que não.
+                </Content.Resume>
+                <Content.External />
+                <Content.Glossary items={[{ title: 'UX Design', description: 'Design de Experiência do usuário.' }]} />
+              </Content.Root>
             </div>
 
-            <div className="bg-dominant-100 w-auto h-auto rounded-2xl mr-3 font-normal text-base sm:text-xl pl-2 py-3 mb-6">
-              <label className="text-contrast-300 font-normal text-xl">
-                <input type="checkbox" className="mr-3 w-5 h-5 accent-[#00C19C]" /> De advogada a desenvolvedora: um
-                relato sobre minha migração de carreira e dicas para quem pretende seguir o mesmo caminho
-              </label>
+            <div>
+              <h2 className="bg-[#00C19C] text-gray-light-200 w-full px-7 py-3 text-xl font-semibold text-center">
+                Conteúdos
+              </h2>
+
+              <ContentAccordion />
             </div>
-          </section>
+          </div>
         </div>
       </Page.Content>
     </Page.Root>
