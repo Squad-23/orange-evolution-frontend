@@ -1,13 +1,17 @@
-interface UserContent {
+export interface UserContent {
+  id: string;
   subject: string;
   title: string;
   fileType: string;
   link: string;
   time: number;
+  source: string;
+  abstract: string;
+  glossary: string;
   completed: boolean;
 }
 
-interface UserSubject {
+export interface UserSubject {
   title: string;
   progress: {
     max: number;
@@ -16,7 +20,8 @@ interface UserSubject {
   contents: UserContent[];
 }
 
-interface UserModule {
+export interface UserModule {
+  id: string;
   title: string;
   description: string;
   imageURL: string;

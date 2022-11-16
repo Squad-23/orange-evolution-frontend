@@ -4,8 +4,10 @@ import { OrangeTrail } from '../../assets/svgs/OrangeTrail';
 import { Card } from '../../components/Card';
 import { Page } from '../../components/Page';
 import { TrailContext } from '../../contexts/trails';
+import { UserContext } from '../../contexts/user';
 
 export function Dashboard() {
+  const { user } = useContext(UserContext);
   const { trails } = useContext(TrailContext);
 
   return (
@@ -34,7 +36,7 @@ export function Dashboard() {
               "
           >
             <h2 className="text-brand-pink-700 dark:text-brand-green text-4xl font-semibold">
-              Bem vinda, Maria Angélica
+              Bem vindo(a), {user.name}!
             </h2>
 
             <h3 className="text-3xl">Escolha uma ou mais trilhas para seguir...</h3>

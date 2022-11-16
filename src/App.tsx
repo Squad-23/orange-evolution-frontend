@@ -26,8 +26,14 @@ export function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/trail/:idTrail" element={<Trail />} />
-              <Route path="/subject" element={<Subject />} />
+
+              <Route path="/trail/:idTrail">
+                <Route path="/trail/:idTrail" element={<Trail />} />
+                <Route path="/trail/:idTrail/module/:idModule">
+                  <Route path="/trail/:idTrail/module/:idModule" element={<Subject />} />
+                  <Route path="/trail/:idTrail/module/:idModule/subject/:indexSubject" element={<Subject />} />
+                </Route>
+              </Route>
 
               <Route path="*" element={<NotFound />} />
             </Routes>

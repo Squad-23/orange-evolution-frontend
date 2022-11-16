@@ -14,10 +14,30 @@ function Resume({ children, className }: BaseHTMLAttributes<HTMLBaseElement>) {
   return <p className={cn(className)}>{children}</p>;
 }
 
-function External({ className }: BaseHTMLAttributes<HTMLBaseElement>) {
+function External({ className, href }: BaseHTMLAttributes<HTMLBaseElement>) {
+  if (href?.includes('youtube')) {
+    const videoId = href
+      .split('?')[1]
+      .split('&')
+      .find((q) => q.includes('v='))
+      ?.replace('v=', '');
+
+    if (videoId) {
+      return (
+        <iframe
+          className="w-full aspect-video rounded-xl"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="YouTube video player"
+          frameBorder={0}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
+  }
   return (
     <a
-      href="www.google.com"
+      href={href ?? '/'}
       className={cn(
         'bg-brand-green px-4 py-2 flex gap-2 items-center rounded-2xl justify-center hover:bg-teal-600 text-gray-light-100',
         className,
