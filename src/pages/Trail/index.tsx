@@ -24,7 +24,7 @@ export function Trail() {
 
   return (
     <Page.Root>
-      <div className="bg-dominant-100">
+      <div className="bg-dominant-100 w-auto h-auto">
       <Page.Menu> 
         <div className="flex items-center justify-center">
         <CircularProgress max={trail?.progress?.max} completed={trail?.progress?.completed}/>
@@ -35,10 +35,10 @@ export function Trail() {
         <div className="w-screen min-h-screen flex-col bg-gradient-to-r from-[#FD7AC54D] to-[#D5FFAB80] p-6 sm:py-14 sm:px-16">
           <section className="flex flex-col items-center sm:flex-row sm:gap-16">
             <div>
-              <h3 className="text-base font-bold uppercase bg-contrast my-4 text-contrast-300 sm:text-xl ">
-               Oi, {user?.name}
+              <h3 className="text-lg uppercase font-thin bg-contrast my-4 text-contrast-300 sm:text-xl ">
+               Olá, {user?.name}
               </h3>
-              <h2 className="text-base font-medium bg-contrast my-4 text-contrast-300 sm:text-xl">VOCÊ ESTÁ NA TRILHA DE {trail?.title}</h2>
+              <h2 className="text-2xl font-medium  uppercase bg-contrast my-4 text-contrast-300">VOCÊ ESTÁ NA TRILHA DE {trail?.title}</h2>
               <p className="text-sm italic font-normal my-4 text-contrast-300 sm:text-xl">
                 &quot;Você sabia que o tempo médio para uma laranjeira dar frutos é de 24 meses após o plantio?&quot;
               </p>
