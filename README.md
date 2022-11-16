@@ -1,5 +1,3 @@
-Website do Projeto do Squad 23 para a fase de Hackathon do Processo de Formação FCamara - Season 4.
-
 <div align="center">
  <h1>Programa de Formação FCamara - Hackathon season 4</h1>
  <h2>Orange Evolution - Squad 23<h2>
