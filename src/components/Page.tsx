@@ -32,7 +32,7 @@ function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
       "
       >
         <div className="flex gap-2">
-          <Link to="/">
+          <Link to="/dashboard">
             <img src={OrangeEvolutionLogo} alt="Logo da Orange Evolution" className="w-16 h-16 md:ml-16 md:mr-6" />
           </Link>
 

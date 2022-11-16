@@ -7,8 +7,8 @@ import { ThemeSwitcher } from '../../components/ThemeSwitch';
 import { UserContext } from '../../contexts/user';
 
 export function Login() {
-  const [email, setEmail] = useState<string>('rian.aquino2k18@gmail.com');
-  const [password, setPassword] = useState<string>('102030');
+  const [email, setEmail] = useState<string>('maria@gmail.com');
+  const [password, setPassword] = useState<string>('maria');
   const [authenticating, setAuthenticating] = useState(false);
   const [error, setError] = useState<string | undefined>();
 

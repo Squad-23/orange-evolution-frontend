@@ -49,25 +49,12 @@ function External({ className, href }: BaseHTMLAttributes<HTMLBaseElement>) {
   );
 }
 
-interface GlossaryProps extends BaseHTMLAttributes<HTMLDivElement> {
-  items: {
-    title: string;
-    description: string;
-  }[];
-}
-
-function Glossary({ items, ...props }: GlossaryProps) {
+function Glossary({ children }: BaseHTMLAttributes<HTMLDivElement>) {
   return (
-    <div {...props}>
+    <div>
       <h4 className="text-lg font-semibold">Glossário</h4>
 
-      <ul className="mt-2 flex flex-col gap-2">
-        {items.map((item, index) => (
-          <li key={`item_${String(index)}`}>
-            <span className="text-blue-400">{item.title}</span> {item.description}
-          </li>
-        ))}
-      </ul>
+      <p className="mt-2 flex flex-col gap-2">{children}</p>
     </div>
   );
 }
