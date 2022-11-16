@@ -8,6 +8,7 @@ import { UserContext } from './user';
 
 interface TrailContextProps {
   trails: UserTrail[];
+  getUserTrails: () => void;
 }
 
 export const TrailContext = createContext<TrailContextProps>({} as TrailContextProps);
@@ -18,13 +19,13 @@ export function TrailContextProvider({ children }: PropsWithChildren) {
   const { user, privateApi } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(user.id);
     if (user.id) {
       void (async () => {
         await privateApi
           .get(`/user/${user.id}/trails`)
-          .then(({ data }: AxiosResponse<{ trails: UserTrail[] }>) =>{ console.log("chamando api", new Date().toUTCString()); setTrails(data.trails)}
-            )
+          .then(({ data }: AxiosResponse<{ trails: UserTrail[] }>) => {
+            setTrails(data.trails);
+          })
           .catch((err) => {
             console.log(err);
           });
@@ -35,8 +36,22 @@ export function TrailContextProvider({ children }: PropsWithChildren) {
   const value = useMemo(
     () => ({
       trails,
+      getUserTrails: () => {
+        if (user.id) {
+          void (async () => {
+            await privateApi
+              .get(`/user/${user.id}/trails`)
+              .then(({ data }: AxiosResponse<{ trails: UserTrail[] }>) => {
+                setTrails(data.trails);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          })();
+        }
+      },
     }),
-    [trails],
+    [trails, privateApi, user.id],
   );
 
   return <TrailContext.Provider value={value}>{children}</TrailContext.Provider>;

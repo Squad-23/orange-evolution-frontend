@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { HiChevronDown, HiLogout } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
-import Avatar from '../assets/images/avatar-example.png';
 import FCamaraLogo from '../assets/images/fcamara.png';
 import OrangeEvolutionLogo from '../assets/images/orange-evolution.png';
 import { DiscordIcon } from '../assets/svgs/DiscordIcon';
@@ -17,7 +16,7 @@ import { UserContext } from '../contexts/user';
 import { ThemeSwitcher } from './ThemeSwitch';
 
 function Root({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
-  return <div className="bg-dominant-200 w-full h-full flex flex-col">{children}</div>;
+  return <div className="bg-dominant-200 w-screen h-screen flex flex-col">{children}</div>;
 }
 
 function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
@@ -64,7 +63,11 @@ function Menu({ children }: BaseHTMLAttributes<HTMLBaseElement>) {
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <button type="button" className="flex gap-1 items-center rounded-full" aria-label="Opções de Usuário">
-                <img src={Avatar} alt="Imagem de avatar" className="w-12 h-12" />
+                <img
+                  src="https://portal1.iff.edu.br/desenvolvimento-institucional/imagens/avatar.jpg"
+                  alt="Imagem de avatar"
+                  className="w-12 h-12 rounded-full"
+                />
 
                 <HiChevronDown
                   className="
