@@ -21,7 +21,7 @@ export function ContentAccordion({ contents, setContent }: ContentAccordionProps
   const { getUserTrails } = useContext(TrailContext);
 
   return (
-    <Accordion.Root type="multiple" className="p-6 overflow-y-auto w-full">
+    <Accordion.Root type="multiple" className="p-6 overflow-scroll scrollbar-thin w-full">
       {contents.map((content, index) => (
         <Accordion.Item
           value={`item-${String(index + 1)}`}
@@ -81,7 +81,7 @@ export function ContentAccordion({ contents, setContent }: ContentAccordionProps
             <Content.Root className="flex sm:hidden">
               <Content.Resume>{content.abstract}</Content.Resume>
               <Content.External href={content.link} />
-              <Content.Glossary items={[{ title: 'UX Design', description: 'Design de Experiência do usuário.' }]} />
+              {content.glossary && <Content.Glossary>{content.glossary}</Content.Glossary>}
             </Content.Root>
           </Accordion.Content>
         </Accordion.Item>

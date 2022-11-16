@@ -37,7 +37,7 @@ export function Subject() {
       <Page.Content className="h-full">
         <div className="flex sm:hidden flex-col gap-6">
           <div className="bg-dominant-200 rounded-2xl flex flex-col items-center overflow-clip">
-            <div className="w-full flex flex-col sm:flex-row overflow-y-auto">
+            <div className="w-full flex flex-col sm:flex-row overflow-scroll scrollbar-thin">
               <h2 className="bg-[#83CABC] text-gray-dark-200 w-full px-7 py-3 text-xl font-semibold text-center">
                 {subject?.title}
               </h2>
@@ -50,9 +50,9 @@ export function Subject() {
           </div>
         </div>
 
-        <div className="w-full h-full hidden sm:flex flex-col gap-6 p-16">
-          <div className="bg-dominant-200 rounded-2xl flex w-full overflow-clip">
-            <div className="w-full overflow-y-scroll">
+        <div className="w-full h-full hidden sm:flex flex-col gap-6 p-16 ">
+          <div className="bg-dominant-200 rounded-2xl flex w-full h-full overflow-clip">
+            <div className="bg-dominant-300 w-full overflow-scroll scrollbar-thin">
               <h2 className="bg-[#83CABC] text-gray-dark-200 w-full px-7 py-3 text-xl font-semibold text-center">
                 {subject ? subject.title : '...'}
               </h2>
@@ -62,9 +62,8 @@ export function Subject() {
                   <Content.Title>{content.title}</Content.Title>
                   <Content.Resume>{content.subject}</Content.Resume>
                   <Content.External href={content.link} />
-                  <Content.Glossary
-                    items={[{ title: 'UX Design', description: 'Design de Experiência do usuário.' }]}
-                  />
+                  {content.glossary && <Content.Glossary>{content.glossary}</Content.Glossary>}
+                  <div className="pb-16" />
                 </Content.Root>
               ) : (
                 <h3 className="text-3xl w-full text-center text-contrast-200 my-16">
@@ -73,7 +72,7 @@ export function Subject() {
               )}
             </div>
 
-            <div className="min-w-[30rem] h-full">
+            <div className="min-w-[30rem] h-full overflow-scroll scrollbar-thin">
               <h2 className="bg-[#00C19C] text-gray-light-200 w-full px-7 py-3 text-xl font-semibold text-center">
                 Conteúdos
               </h2>
